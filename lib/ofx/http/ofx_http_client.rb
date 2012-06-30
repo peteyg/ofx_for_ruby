@@ -43,6 +43,7 @@ module OFX
             http.verify_mode = OpenSSL::SSL::VERIFY_PEER
             http.ca_file = File.join(File.dirname(__FILE__), "cacert.pem")
             http.use_ssl = true
+            http.ssl_version = :SSLv3
             http_response = http.start do |http|
                 http.request(http_request)
             end

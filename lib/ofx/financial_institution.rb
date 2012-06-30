@@ -30,6 +30,10 @@ module OFX
                     FinancialInstitution.new('Citi',
                                              URI.parse('https://secureofx2.bankhost.com/citi/cgi-forte/ofx_rt?servicename=ofx_rt&pagename=ofx'),
                                              OFX::Version.new("1.0.2"))
+                when 'Chase'
+                    FinancialInstitution.new('Chase',
+                                             URI.parse('https://ofx.chase.com/'),
+                                             OFX::Version.new("1.0.2"))
                 else
                     raise NotImplementedError
             end

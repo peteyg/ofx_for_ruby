@@ -21,11 +21,13 @@ module OFX
     class FinancialClient
 
         @financial_institutions_and_credentials = []
+        @app_id = nil
         
         attr_accessor :date_of_last_profile_update
 
-        def initialize(financial_institutions_and_credentials)
+        def initialize(financial_institutions_and_credentials, app_id = nil)
             @financial_institutions_and_credentials = financial_institutions_and_credentials
+            @app_id = app_id
         end
 
         def financial_institution_identification_for(financial_institution_id)
@@ -42,7 +44,7 @@ module OFX
         end
 
         def application_identification
-            OFX::ApplicationIdentification.new('OFX', '0010')
+            @app_id ? @app_id.dup : OFX::ApplicationIdentification.new('OFX', '0010')
         end
 
         def create_signon_request_message(financial_institution_id)

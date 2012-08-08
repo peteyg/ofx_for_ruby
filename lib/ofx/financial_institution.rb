@@ -75,13 +75,23 @@ module OFX
         end
 
         def send(document)
-            serializer = OFX::Serializer.get(@ofx_version)
+            response_body = sendAndGetResponseBody(document)
+			return parseResponseBody(response_body)
+
+        end
+		
+		def sendAndGetResponseBody(document)
+			serializer = OFX::Serializer.get(@ofx_version)
             request_body = serializer.to_http_post_body(document)
 
             client = OFX::HTTPClient.new(@ofx_uri)
             response_body = client.send(request_body)
-
-            return serializer.from_http_response_body(response_body)
-        end
+			return response_body
+		end
+		
+		def parseResponseBody(response)
+			serializer = OFX::Serializer.get(@ofx_version)
+			return serializer.from_http_response_body(response)
+		end
     end
 end

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright © 2007 Chris Guidry <chrisguidry@gmail.com>
 #
 # This file is part of OFX for Ruby.
@@ -82,5 +83,5 @@ module OFX
         end
     end
     
-    VERSION = Version.new('0.1.2')
+    VERSION = Version.new('0.1.3')
 end

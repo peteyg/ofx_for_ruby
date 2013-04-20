@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright © 2007 Chris Guidry <chrisguidry@gmail.com>
 #
 # This file is part of OFX for Ruby.
@@ -27,8 +28,9 @@ module OFX
                                              URI.parse('https://onlinebanking.capitalone.com/scripts/serverext.dll'),
                                              OFX::Version.new("1.0.2"))
                 when 'Citi'
+                    puts "DEBUG: Using new Citi URL"
                     FinancialInstitution.new('Citi',
-                                             URI.parse('https://secureofx2.bankhost.com/citi/cgi-forte/ofx_rt?servicename=ofx_rt&pagename=ofx'),
+                                             URI.parse('https://www.accountonline.com/cards/svc/CitiOfxManager.do'),
                                              OFX::Version.new("1.0.2"))
                 when 'Chase'
                     FinancialInstitution.new('Chase',

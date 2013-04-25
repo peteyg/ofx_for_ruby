@@ -28,7 +28,6 @@ module OFX
                                              URI.parse('https://onlinebanking.capitalone.com/scripts/serverext.dll'),
                                              OFX::Version.new("1.0.2"))
                 when 'Citi'
-                    puts "DEBUG: Using new Citi URL"
                     FinancialInstitution.new('Citi',
                                              URI.parse('https://www.accountonline.com/cards/svc/CitiOfxManager.do'),
                                              OFX::Version.new("1.0.2"))
